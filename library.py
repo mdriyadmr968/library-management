@@ -153,7 +153,12 @@ class LibraryManagementSystem:
         listScrollbar=Scrollbar(DataFrameRight)
         listScrollbar.grid(row=0,column=1,sticky="ns")
 
-        listBooks=['Head First Book', 'Learn Python The Hard Way','Python Programming','Python CookBook','Intro to Machine Learning','Machine tecno','My Python','My python','Elite Jungle Python','Machine Python','Advanced Python','Inton Python','RedChilli Python']
+        listBooks=['Head First Book', 'Learn Python The Hard Way','Python Programming','Python CookBook','Intro to Machine Learning','Machine tecno','My Python','My python','Elite Jungle Python','Machine Python','Advanced Python','Inton Python','RedChilli Python','Head First Book', 'Learn Python The Hard Way','Python Programming','Python CookBook','Intro to Machine Learning','Machine tecno','My Python','My python','Elite Jungle Python','Machine Python','Advanced Python','Inton Python','RedChilli Python'
+        ]
+
+
+        # All Books details added here 
+
 
         def SelectBook(event=""):
             value=str(listBox.get(listBox.curselection()))
@@ -172,6 +177,172 @@ class LibraryManagementSystem:
                 self.lateratefine_var.set("bdt.50")
                 self.dateoverdue.set("NO")
                 self.finallprice.set("bdt.788")
+
+
+
+                
+            elif (x=="Learn Python The Hard Way"):
+                self.bookid_var.set("BKID123")
+                self.booktitle_var.set("Python Manual")
+                self.auther_var.set("Charls Dicken")
+
+                d1=datetime.datetime.today()
+                d2=datetime.timedelta(days=15)
+                d3=d1+d2
+                self.dateborrowed_var.set(d1)
+                self.datedue_var.set(d3)
+                self.daysonbook.set(15)
+                self.lateratefine_var.set("bdt.50")
+                self.dateoverdue.set("NO")
+                self.finallprice.set("bdt.900")
+
+
+
+                
+            elif (x=="Python Programming"):
+                self.bookid_var.set("BKID124")
+                self.booktitle_var.set("Python Manual")
+                self.auther_var.set("jane austin")
+
+                d1=datetime.datetime.today()
+                d2=datetime.timedelta(days=15)
+                d3=d1+d2
+                self.dateborrowed_var.set(d1)
+                self.datedue_var.set(d3)
+                self.daysonbook.set(15)
+                self.lateratefine_var.set("bdt.50")
+                self.dateoverdue.set("NO")
+                self.finallprice.set("bdt.1208")
+
+
+
+                
+            elif (x=="Python CookBook"):
+                self.bookid_var.set("BKID125")
+                self.booktitle_var.set("Python Manual")
+                self.auther_var.set("james joyse")
+
+                d1=datetime.datetime.today()
+                d2=datetime.timedelta(days=15)
+                d3=d1+d2
+                self.dateborrowed_var.set(d1)
+                self.datedue_var.set(d3)
+                self.daysonbook.set(15)
+                self.lateratefine_var.set("bdt.50")
+                self.dateoverdue.set("NO")
+                self.finallprice.set("bdt.1000")
+
+
+
+                
+            elif (x=="Intro to Machine Learning"):
+                self.bookid_var.set("BKID126")
+                self.booktitle_var.set("Python Manual")
+                self.auther_var.set("Leo tolstoy")
+
+                d1=datetime.datetime.today()
+                d2=datetime.timedelta(days=15)
+                d3=d1+d2
+                self.dateborrowed_var.set(d1)
+                self.datedue_var.set(d3)
+                self.daysonbook.set(15)
+                self.lateratefine_var.set("bdt.50")
+                self.dateoverdue.set("NO")
+                self.finallprice.set("bdt.300")
+
+
+
+                
+            elif (x=="Machine tecno"):
+                self.bookid_var.set("BKID127")
+                self.booktitle_var.set("Python Manual")
+                self.auther_var.set("Mark Twain")
+
+                d1=datetime.datetime.today()
+                d2=datetime.timedelta(days=15)
+                d3=d1+d2
+                self.dateborrowed_var.set(d1)
+                self.datedue_var.set(d3)
+                self.daysonbook.set(15)
+                self.lateratefine_var.set("bdt.50")
+                self.dateoverdue.set("NO")
+                self.finallprice.set("bdt.150")
+
+
+
+                
+            elif (x=="My Python"):
+                self.bookid_var.set("BKID128")
+                self.booktitle_var.set("Python Manual")
+                self.auther_var.set("C.S Lewis")
+
+                d1=datetime.datetime.today()
+                d2=datetime.timedelta(days=15)
+                d3=d1+d2
+                self.dateborrowed_var.set(d1)
+                self.datedue_var.set(d3)
+                self.daysonbook.set(15)
+                self.lateratefine_var.set("bdt.50")
+                self.dateoverdue.set("NO")
+                self.finallprice.set("bdt.277")
+
+
+
+                
+            elif (x=="Elite Jungle Python"):
+                self.bookid_var.set("BKID129")
+                self.booktitle_var.set("Python Manual")
+                self.auther_var.set("Roald Dahl")
+
+                d1=datetime.datetime.today()
+                d2=datetime.timedelta(days=15)
+                d3=d1+d2
+                self.dateborrowed_var.set(d1)
+                self.datedue_var.set(d3)
+                self.daysonbook.set(15)
+                self.lateratefine_var.set("bdt.50")
+                self.dateoverdue.set("NO")
+                self.finallprice.set("bdt.548")
+
+
+
+                
+            elif (x=="Machine Python"):
+                self.bookid_var.set("BKID130")
+                self.booktitle_var.set("Python Manual")
+                self.auther_var.set("John Milton")
+
+                d1=datetime.datetime.today()
+                d2=datetime.timedelta(days=15)
+                d3=d1+d2
+                self.dateborrowed_var.set(d1)
+                self.datedue_var.set(d3)
+                self.daysonbook.set(15)
+                self.lateratefine_var.set("bdt.50")
+                self.dateoverdue.set("NO")
+                self.finallprice.set("bdt.320")
+
+
+
+                
+            elif (x=="Head First Book"):
+                self.bookid_var.set("BKID131")
+                self.booktitle_var.set("Python Manual")
+                self.auther_var.set("Henry j")
+
+                d1=datetime.datetime.today()
+                d2=datetime.timedelta(days=15)
+                d3=d1+d2
+                self.dateborrowed_var.set(d1)
+                self.datedue_var.set(d3)
+                self.daysonbook.set(15)
+                self.lateratefine_var.set("bdt.50")
+                self.dateoverdue.set("NO")
+                self.finallprice.set("bdt.558")
+
+
+
+                
 
         listBox=Listbox(DataFrameRight,font=("arial",12),width=20,height=16)
         listBox.bind("<<ListboxSelect>>",SelectBook)
@@ -235,7 +406,7 @@ class LibraryManagementSystem:
         self.library_table.heading("lastname",text="Last Name")
         self.library_table.heading("adress1",text="Address1")
         self.library_table.heading("address2",text="Address2")
-        self.library_table.heading("postid",text="Post Id")
+        self.library_table.heading("postid",text="Post ID")
         self.library_table.heading("mobile",text="Mobile Number")
         self.library_table.heading("bookid",text="Book ID")
         self.library_table.heading("booktitle",text="Book Title")
@@ -271,6 +442,8 @@ class LibraryManagementSystem:
         self.library_table.column("dateoverdue",width=100)
         self.library_table.column("finalprice",width=100)
 
+        self.fatch_data()
+
 
     def add_data(self):
         conn=mysql.connector.connect(host="localhost",username="root",password="mdriyadmr968",database="mydata")
@@ -279,6 +452,7 @@ class LibraryManagementSystem:
         
         my_cursor.execute("insert into library values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(
                                                                                                                 self.member_var.get(),
+                                                                                                                self.prn_var.get(),
                                                                                                                 self.id_var.get(),
                                                                                                                 self.firstname_var.get(),
                                                                                                                 self.lastname_var.get(),
@@ -297,8 +471,23 @@ class LibraryManagementSystem:
                                                                                                                 self.finallprice.get()
                                                                                                                 ))
         conn.commit()
+        self.fatch_data()
         conn.close()
-        messagebox.messagebox.showinfo("Success","Member Has been inserted successfully")
+        messagebox.showinfo("Success","Member Has been inserted successfully")
+
+
+    def fatch_data(self):
+        conn=mysql.connector.connect(host="localhost",username="root",password="mdriyadmr968",database="mydata")
+        my_cursor=conn.cursor()
+        my_cursor.execute("select * from library")
+        rows=my_cursor.fetchall()
+
+        if len(rows)!=0:
+            self.library_table.delete(*self.library_table.get_children())
+            for i in rows:
+                self.library_table.insert("",END,values=i)
+            conn.commit()
+        conn.close()
 
 
 
