@@ -2,6 +2,7 @@ from tkinter import*
 from tkinter import ttk
 import mysql.connector
 from tkinter import messagebox
+import tkinter
 import datetime
 
 
@@ -183,7 +184,7 @@ class LibraryManagementSystem:
                 
             elif (x=="Learn Python The Hard Way"):
                 self.bookid_var.set("BKID123")
-                self.booktitle_var.set("Python Manual")
+                self.booktitle_var.set("A Buffet of Awesome Python Features")
                 self.auther_var.set("Charls Dicken")
 
                 d1=datetime.datetime.today()
@@ -201,7 +202,7 @@ class LibraryManagementSystem:
                 
             elif (x=="Python Programming"):
                 self.bookid_var.set("BKID124")
-                self.booktitle_var.set("Python Manual")
+                self.booktitle_var.set("Learn Faster, Remember longer")
                 self.auther_var.set("jane austin")
 
                 d1=datetime.datetime.today()
@@ -219,7 +220,7 @@ class LibraryManagementSystem:
                 
             elif (x=="Python CookBook"):
                 self.bookid_var.set("BKID125")
-                self.booktitle_var.set("Python Manual")
+                self.booktitle_var.set("The Ultimate Beginner's Guide ")
                 self.auther_var.set("james joyse")
 
                 d1=datetime.datetime.today()
@@ -237,7 +238,7 @@ class LibraryManagementSystem:
                 
             elif (x=="Intro to Machine Learning"):
                 self.bookid_var.set("BKID126")
-                self.booktitle_var.set("Python Manual")
+                self.booktitle_var.set("Master the Basics of Data Analysis")
                 self.auther_var.set("Leo tolstoy")
 
                 d1=datetime.datetime.today()
@@ -255,7 +256,7 @@ class LibraryManagementSystem:
                 
             elif (x=="Machine tecno"):
                 self.bookid_var.set("BKID127")
-                self.booktitle_var.set("Python Manual")
+                self.booktitle_var.set("An Easiest Beginner to Expert Guide to Learn Python")
                 self.auther_var.set("Mark Twain")
 
                 d1=datetime.datetime.today()
@@ -273,7 +274,7 @@ class LibraryManagementSystem:
                 
             elif (x=="My Python"):
                 self.bookid_var.set("BKID128")
-                self.booktitle_var.set("Python Manual")
+                self.booktitle_var.set("Beginner’s Guide to Programming Code with Python")
                 self.auther_var.set("C.S Lewis")
 
                 d1=datetime.datetime.today()
@@ -291,7 +292,7 @@ class LibraryManagementSystem:
                 
             elif (x=="Elite Jungle Python"):
                 self.bookid_var.set("BKID129")
-                self.booktitle_var.set("Python Manual")
+                self.booktitle_var.set("Learn Computational and Algorithmic Thinking")
                 self.auther_var.set("Roald Dahl")
 
                 d1=datetime.datetime.today()
@@ -309,7 +310,7 @@ class LibraryManagementSystem:
                 
             elif (x=="Machine Python"):
                 self.bookid_var.set("BKID130")
-                self.booktitle_var.set("Python Manual")
+                self.booktitle_var.set("Make Your Game Using Python")
                 self.auther_var.set("John Milton")
 
                 d1=datetime.datetime.today()
@@ -327,7 +328,7 @@ class LibraryManagementSystem:
                 
             elif (x=="Head First Book"):
                 self.bookid_var.set("BKID131")
-                self.booktitle_var.set("Python Manual")
+                self.booktitle_var.set("Python Data Analysisl")
                 self.auther_var.set("Henry j")
 
                 d1=datetime.datetime.today()
@@ -362,19 +363,19 @@ class LibraryManagementSystem:
         btnAddData=Button(Framebutton,command=self.add_data,text="Add Data",font=("arial",12,"bold"),width=20,bg="blue",fg="white")
         btnAddData.grid(row=0,column=0)
 
-        btnAddData=Button(Framebutton,text="Show Data",font=("arial",12,"bold"),width=20,bg="blue",fg="white")
+        btnAddData=Button(Framebutton,command=self.showData,text="Show Data",font=("arial",12,"bold"),width=20,bg="blue",fg="white")
         btnAddData.grid(row=0,column=1)
 
-        btnAddData=Button(Framebutton,text="Update",font=("arial",12,"bold"),width=20,bg="blue",fg="white")
+        btnAddData=Button(Framebutton,command=self.update,text="Update",font=("arial",12,"bold"),width=20,bg="blue",fg="white")
         btnAddData.grid(row=0,column=2)
 
-        btnAddData=Button(Framebutton,text="Delete",font=("arial",12,"bold"),width=20,bg="blue",fg="white")
+        btnAddData=Button(Framebutton,command=self.delete,text="Delete",font=("arial",12,"bold"),width=20,bg="blue",fg="white")
         btnAddData.grid(row=0,column=3)
 
-        btnAddData=Button(Framebutton,text="Reset",font=("arial",12,"bold"),width=20,bg="blue",fg="white")
+        btnAddData=Button(Framebutton,command=self.reset,text="Reset",font=("arial",12,"bold"),width=20,bg="blue",fg="white")
         btnAddData.grid(row=0,column=4)
 
-        btnAddData=Button(Framebutton,text="Exit",font=("arial",12,"bold"),width=20,bg="blue",fg="white")
+        btnAddData=Button(Framebutton,command=self.iExit,text="Exit",font=("arial",12,"bold"),width=20,bg="blue",fg="white")
         btnAddData.grid(row=0,column=5)
 
 
@@ -401,7 +402,7 @@ class LibraryManagementSystem:
 
         self.library_table.heading("membertype",text="Member Type")
         self.library_table.heading("prnno",text="PRN No")
-        self.library_table.heading("title",text="Title")
+        self.library_table.heading("title",text="Id")
         self.library_table.heading("firstname",text="First Name")
         self.library_table.heading("lastname",text="Last Name")
         self.library_table.heading("adress1",text="Address1")
@@ -443,6 +444,7 @@ class LibraryManagementSystem:
         self.library_table.column("finalprice",width=100)
 
         self.fatch_data()
+        self.library_table.bind("<ButtonRelease-1>",self.get_cursor)
 
 
     def add_data(self):
@@ -475,6 +477,35 @@ class LibraryManagementSystem:
         conn.close()
         messagebox.showinfo("Success","Member Has been inserted successfully")
 
+    def update(self):
+        conn=mysql.connector.connect(host="localhost",username="root",password="mdriyadmr968",database="mydata")
+        my_cursor=conn.cursor()
+        my_cursor.execute("Update library set Member=%s,ID=%s,FirstName=%s,LastName=%s,Address1=%s,Address2=%s,PostCode=%s,Mobile=%s,Bookid=%s,BookTitle=%s,Auther=%s,Dateborrowed=%s,datedue=%s,daysofbook=%s,latereturnfine=%s,dateoverdue=%s,finalprice=%s where PRN_NO=%s",(
+                                                                                                                self.member_var.get(),
+                                                                                                                self.id_var.get(),
+                                                                                                                self.firstname_var.get(),
+                                                                                                                self.lastname_var.get(),
+                                                                                                                self.address1_var.get(),
+                                                                                                                self.address2_var.get(),
+                                                                                                                self.postcode_var.get(),
+                                                                                                                self.mobile_var.get(),
+                                                                                                                self.bookid_var.get(),
+                                                                                                                self.booktitle_var.get(),
+                                                                                                                self.auther_var.get(),
+                                                                                                                self.dateborrowed_var.get(),
+                                                                                                                self.datedue_var.get(),
+                                                                                                                self.daysonbook.get(),
+                                                                                                                self.lateratefine_var.get(),
+                                                                                                                self.dateoverdue.get(),
+                                                                                                                self.finallprice.get(),
+                                                                                                                self.prn_var.get(),
+                                                                                                                ))
+        conn.commit()
+        self.fatch_data()
+        self.reset()
+        conn.close()
+        messagebox.showinfo("Success","Member has been Updated")
+
 
     def fatch_data(self):
         conn=mysql.connector.connect(host="localhost",username="root",password="mdriyadmr968",database="mydata")
@@ -489,6 +520,97 @@ class LibraryManagementSystem:
             conn.commit()
         conn.close()
 
+    def get_cursor(self,event=""):
+        cursor_row=self.library_table.focus()
+        content=self.library_table.item(cursor_row)
+        row=content['values']
+
+        self.member_var.set(row[0]),
+        self.prn_var.set(row[1]),
+        self.id_var.set(row[2]),
+        self.firstname_var.set(row[3]),
+        self.lastname_var.set(row[4]),
+        self.address1_var.set(row[5]),
+        self.address2_var.set(row[6]),
+        self.postcode_var.set(row[7]),
+        self.mobile_var.set(row[8]),
+        self.bookid_var.set(row[9]),
+        self.booktitle_var.set(row[10]),
+        self.auther_var.set(row[11]),
+        self.dateborrowed_var.set(row[12]),
+        self.datedue_var.set(row[13]),
+        self.daysonbook.set(row[14]),
+        self.lateratefine_var.set(row[15]),
+        self.dateoverdue.set(row[16]),
+        self.finallprice.set(row[17]),
+
+    def showData(self):
+        self.txtBox.insert(END,"Member Type:\t\t"+ self.member_var.get() + "\n")
+        self.txtBox.insert(END,"PRN No:\t\t"+ self.prn_var.get() + "\n")
+        self.txtBox.insert(END,"ID No:\t\t"+ self.id_var.get() + "\n")
+        self.txtBox.insert(END,"FirstName:\t\t"+ self.firstname_var.get() + "\n")
+        self.txtBox.insert(END,"LastName:\t\t"+ self.lastname_var.get() + "\n")
+        self.txtBox.insert(END,"Address1:\t\t"+ self.address1_var.get() + "\n")
+        self.txtBox.insert(END,"Address2:\t\t"+ self.address2_var.get() + "\n")
+        self.txtBox.insert(END,"Post Code:\t\t"+ self.postcode_var.get() + "\n")
+        self.txtBox.insert(END,"Mobile No:\t\t"+ self.mobile_var.get() + "\n")
+        self.txtBox.insert(END,"Book ID:\t\t"+ self.bookid_var.get() + "\n")
+        self.txtBox.insert(END,"Book Title:\t\t"+ self.booktitle_var.get() + "\n")
+        self.txtBox.insert(END,"Auther:\t\t"+ self.auther_var.get() + "\n")
+        self.txtBox.insert(END,"DateBorrowed:\t\t"+ self.dateborrowed_var.get() + "\n")
+        self.txtBox.insert(END,"DateDue:\t\t"+ self.datedue_var.get() + "\n")
+        self.txtBox.insert(END,"DaysOnBook:\t\t"+ self.daysonbook.get() + "\n")
+        self.txtBox.insert(END,"LateRateFine:\t\t"+ self.lateratefine_var.get() + "\n")
+        self.txtBox.insert(END,"DateOverDue:\t\t"+ self.dateoverdue.get() + "\n")
+        self.txtBox.insert(END,"FinallPrice:\t\t"+ self.finallprice.get() + "\n")
+
+    def reset(self):
+        self.member_var.set("")
+        self.prn_var.set("")
+        self.id_var.set("")
+        self.firstname_var.set("")
+        self.lastname_var.set("")
+        self.address1_var.set("")
+        self.address2_var.set("")
+        self.postcode_var.set("")
+        self.mobile_var.set("")
+        self.bookid_var.set("")
+        self.booktitle_var.set("")
+        self.auther_var.set("")
+        self.dateborrowed_var.set("")
+        self.datedue_var.set("")
+        self.daysonbook.set("")
+        self.lateratefine_var.set("")
+        self.dateoverdue.set("")
+        self.finallprice.set("")
+        self.txtBox.delete("1.0",END)
+
+
+    def iExit(self):
+        iExit=tkinter.messagebox.askyesno("Libraray management System","Do you want to exit")
+        if iExit>0:
+            self.root.destroy()
+            return
+
+
+    def delete(self):
+        if self.prn_var.get()=="" or self.id_var.get()=="":
+            messagebox.showerror("Error","First Select The Member")
+        else:
+            conn=mysql.connector.connect(host="localhost",username="root",password="mdriyadmr968",database="mydata")
+            my_cursor=conn.cursor()
+            query="delete from library where PRN_NO=%s"
+            value=(self.prn_var.get(),)
+            my_cursor.execute(query,value)
+
+            conn.commit()
+            self.fatch_data()
+            self.reset()
+            conn.close()
+
+            messagebox.showinfo("Success","Member has been deleted")
+
+        
 
 
 
