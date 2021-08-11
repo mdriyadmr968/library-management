@@ -274,7 +274,7 @@ class LibraryManagementSystem:
                 
             elif (x=="My Python"):
                 self.bookid_var.set("BKID128")
-                self.booktitle_var.set("Beginner’s Guide to Programming Code with Python")
+                self.booktitle_var.set("Beginner’s Guide to Programming")
                 self.auther_var.set("C.S Lewis")
 
                 d1=datetime.datetime.today()
